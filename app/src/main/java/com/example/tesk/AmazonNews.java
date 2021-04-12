@@ -8,6 +8,15 @@ public class AmazonNews {
     private String icon;
     private String objType;
 
+    public AmazonNews() {
+        this.url = url;
+        this.startDate = startDate;
+        this.andDate = andDate;
+        this.name = name;
+        this.icon = icon;
+        this.objType = objType;
+    }
+
     public AmazonNews(String url, String startDate, String andDate, String name, String icon, String objType) {
         this.url = url;
         this.startDate = startDate;

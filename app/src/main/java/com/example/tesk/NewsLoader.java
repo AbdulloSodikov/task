@@ -31,10 +31,17 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
             JSONArray jsonArray = new JSONArray(jsonStrNews);
             for (Integer i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
-
+                AmazonNews amazonNews = new AmazonNews();
+                amazonNews.setUrl(json.getString("url"));
+                amazonNews.setStartDate(json.getString("startDate"));
+                amazonNews.setAndDate(json.getString("endDate"));
+                amazonNews.setName(json.getString("name"));
+                amazonNews.setIcon(json.getString("icon"));
+                amazonNews.setObjType(json.getString("objType"));
+                Log.e("News", jsonStrNews);
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+        } catch (JSONException error) {
+            Log.e("Parsing error", error.getMessage());
         }
         return null;
     }
