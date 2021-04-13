@@ -1,8 +1,10 @@
-package com.example.tesk;
+package com.example.taskFromAl;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,11 +14,15 @@ import java.util.ArrayList;
 
 public class NewsLoader extends AsyncTask <Void,Void, Void> {
 
+
+    public MainActivity mainActivity;
     String jsonStrNews;
+
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        mainActivity.news = new ArrayList<>();
 
     }
 
@@ -36,9 +42,10 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
                 amazonNews.setStartDate(json.getString("startDate"));
                 amazonNews.setAndDate(json.getString("endDate"));
                 amazonNews.setName(json.getString("name"));
-                amazonNews.setIcon(json.getString("icon"));
+                amazonNews.setIconUrl(json.getString("icon"));
                 amazonNews.setObjType(json.getString("objType"));
-                Log.e("News", jsonStrNews);
+                mainActivity.news.add(amazonNews);
+                Log.e("News", amazonNews.getName() + amazonNews.getAndDate() + amazonNews.getUrl());
             }
         } catch (JSONException error) {
             Log.e("Parsing error", error.getMessage());
@@ -49,6 +56,13 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
     @Override
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mainActivity,1,GridLayoutManager.VERTICAL,false);
+        mainActivity.list.setLayoutManager(gridLayoutManager);
+
+        NewsAdapter adapter = new NewsAdapter();
+        adapter.mainActivity = mainActivity;
+        mainActivity.list.setAdapter(adapter);
 
 
     }

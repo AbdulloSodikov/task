@@ -1,11 +1,11 @@
-package com.example.tesk;
+package com.example.taskFromAl;
 
 public class AmazonNews {
     private String url;
     private String startDate;
     private String andDate;
     private String name;
-    private String icon;
+    private String iconUrl;
     private String objType;
 
     public AmazonNews() {
@@ -13,16 +13,16 @@ public class AmazonNews {
         this.startDate = startDate;
         this.andDate = andDate;
         this.name = name;
-        this.icon = icon;
+        this.iconUrl = iconUrl;
         this.objType = objType;
     }
 
-    public AmazonNews(String url, String startDate, String andDate, String name, String icon, String objType) {
+    public AmazonNews(String url, String startDate, String andDate, String name, String iconUrl, String objType) {
         this.url = url;
         this.startDate = startDate;
         this.andDate = andDate;
         this.name = name;
-        this.icon = icon;
+        this.iconUrl = iconUrl;
         this.objType = objType;
     }
 
@@ -43,7 +43,7 @@ public class AmazonNews {
     }
 
     public String getIcon() {
-        return icon;
+        return iconUrl;
     }
 
     public String getObjType() {
@@ -66,8 +66,8 @@ public class AmazonNews {
         this.name = name;
     }
 
-    public void setIcon(String icon) {
-        this.icon = icon;
+    public void setIconUrl(String iconUrl) {
+        this.iconUrl = iconUrl;
     }
 
     public void setObjType(String objType) {
