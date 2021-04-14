@@ -34,7 +34,11 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
             jsonStrNews = "";
         }
         try {
-            JSONArray jsonArray = new JSONArray(jsonStrNews);
+            JSONObject jsonObject = new JSONObject(jsonStrNews);
+            JSONArray jsonArray = jsonObject.getJSONArray("data");
+            mainActivity.db.wipeNews();
+
+
             for (Integer i = 0; i < jsonArray.length(); i++) {
                 JSONObject json = jsonArray.getJSONObject(i);
                 AmazonNews amazonNews = new AmazonNews();
@@ -44,6 +48,8 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
                 amazonNews.setName(json.getString("name"));
                 amazonNews.setIconUrl(json.getString("icon"));
                 amazonNews.setObjType(json.getString("objType"));
+                mainActivity.db.insertNews(amazonNews.getUrl(), amazonNews.getStartDate(), amazonNews.getAndDate(),
+                        amazonNews.getName(), amazonNews.getIcon(), amazonNews.getObjType());
                 mainActivity.news.add(amazonNews);
                 Log.e("News", amazonNews.getName() + amazonNews.getAndDate() + amazonNews.getUrl());
             }
@@ -59,11 +65,13 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mainActivity,1,GridLayoutManager.VERTICAL,false);
         mainActivity.list.setLayoutManager(gridLayoutManager);
+        if (jsonStrNews.equals("")){
+            mainActivity.news = mainActivity.db.getNews();
+        }
 
         NewsAdapter adapter = new NewsAdapter();
         adapter.mainActivity = mainActivity;
         mainActivity.list.setAdapter(adapter);
-
 
     }
 }

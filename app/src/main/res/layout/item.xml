@@ -12,89 +12,98 @@
         android:layout_height="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
-        android:text="Имя:"
+        android:text="@string/str_name"
         app:layout_constraintEnd_toStartOf="@+id/tv_nameJson"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_city"
+        android:id="@+id/tv_startData"
         android:layout_width="wrap_content"
         android:layout_height="20dp"
         android:layout_marginTop="5dp"
-        android:text="Город:"
+        android:text="@string/str_startData"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
     <TextView
-        android:id="@+id/tv_state"
-        android:layout_width="40dp"
+        android:id="@+id/tv_objType"
+        android:layout_width="113dp"
         android:layout_height="19dp"
-        android:layout_marginTop="4dp"
-        android:text="Штат:"
-        app:layout_constraintStart_toStartOf="@+id/tv_city"
-        app:layout_constraintTop_toBottomOf="@+id/tv_city" />
+        android:layout_marginTop="5dp"
+        android:text="@string/str_objType"
+        app:layout_constraintStart_toStartOf="@+id/tv_andData"
+        app:layout_constraintTop_toBottomOf="@+id/tv_andData" />
 
     <TextView
         android:id="@+id/tv_nameJson"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
-        android:text="TextView"
+        android:layout_marginEnd="10dp"
+        android:text="dasdasdasda"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_name"
         app:layout_constraintTop_toTopOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_cityJson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_startDataJson"
+        android:layout_width="220dp"
+        android:layout_height="20dp"
         android:layout_marginStart="5dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_city"
-        app:layout_constraintStart_toEndOf="@+id/tv_city"
-        app:layout_constraintTop_toTopOf="@+id/tv_city" />
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/tv_startData"
+        app:layout_constraintEnd_toStartOf="@+id/iv_photo"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_startData"
+        app:layout_constraintTop_toTopOf="@+id/tv_startData"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/tv_stateJson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/tv_objTypeJson"
+        android:layout_width="164dp"
+        android:layout_height="20dp"
         android:layout_marginStart="5dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_state"
-        app:layout_constraintStart_toEndOf="@+id/tv_state"
-        app:layout_constraintTop_toTopOf="@+id/tv_state" />
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/tv_objType"
+        app:layout_constraintEnd_toStartOf="@+id/iv_photo"
+        app:layout_constraintHorizontal_bias="0.013"
+        app:layout_constraintStart_toEndOf="@+id/tv_objType"
+        app:layout_constraintTop_toTopOf="@+id/tv_objType"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_andData"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="Дата оканчания:"
-        app:layout_constraintStart_toStartOf="@+id/tv_state"
-        app:layout_constraintTop_toBottomOf="@+id/tv_state" />
+        android:text="@string/str_andData"
+        app:layout_constraintStart_toStartOf="@+id/tv_startData"
+        app:layout_constraintTop_toBottomOf="@+id/tv_startData" />
 
     <TextView
         android:id="@+id/tv_dataEndJson"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
+        android:layout_width="154dp"
+        android:layout_height="20dp"
+        android:text=""
         app:layout_constraintBottom_toBottomOf="@+id/tv_andData"
+        app:layout_constraintEnd_toStartOf="@+id/iv_photo"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toEndOf="@+id/tv_andData"
-        app:layout_constraintTop_toTopOf="@+id/tv_andData" />
+        app:layout_constraintTop_toTopOf="@+id/tv_andData"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/iv_photo"
         android:layout_width="104dp"
         android:layout_height="92dp"
         android:layout_marginEnd="10dp"
         android:foregroundGravity="center_vertical|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.968"
-        app:layout_constraintStart_toEndOf="@+id/tv_nameJson"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 </androidx.constraintlayout.widget.ConstraintLayout>

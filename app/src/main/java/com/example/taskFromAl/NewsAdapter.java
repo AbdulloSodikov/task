@@ -1,7 +1,5 @@
 package com.example.taskFromAl;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
 
@@ -25,24 +25,29 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     }
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView name, city, state, endData;
+        public TextView name, startData, endData, objType;
+        public ImageView photo;
 
         public ViewHolder(View view) {
             super(view);
 
             name = view.findViewById(R.id.tv_nameJson);
-            city = view.findViewById(R.id.tv_cityJson);
-            state = view.findViewById(R.id.tv_stateJson);
+            startData = view.findViewById(R.id.tv_startDataJson);
             endData = view.findViewById(R.id.tv_dataEndJson);
+             objType = view.findViewById(R.id.tv_objTypeJson);
 
+
+            photo  =view.findViewById(R.id.iv_photo);
         }
     }
         @Override
         public void onBindViewHolder(final ViewHolder viewHolder, final int index) {
             viewHolder.name.setText(mainActivity.news.get(index).getName());
-            viewHolder.city.setText(mainActivity.news.get(index).getName());
-            viewHolder.state.setText(mainActivity.news.get(index).getName());
-            viewHolder.endData.setText(mainActivity.news.get(index).getName());
+            viewHolder.startData.setText(mainActivity.news.get(index).getStartDate());
+            viewHolder.endData.setText(mainActivity.news.get(index).getAndDate());
+            viewHolder.objType.setText(mainActivity.news.get(index).getObjType());
+            Glide.with(mainActivity.getApplicationContext()).load(mainActivity.news.get(index).getIcon()).into(viewHolder.photo);
+
         }
     }
 
