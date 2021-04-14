@@ -2,7 +2,9 @@ package com.example.taskFromAl;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.View;
 
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -23,7 +25,7 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
     protected void onPreExecute() {
         super.onPreExecute();
         mainActivity.news = new ArrayList<>();
-
+        mainActivity.loadData.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -51,7 +53,7 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
                 mainActivity.db.insertNews(amazonNews.getUrl(), amazonNews.getStartDate(), amazonNews.getAndDate(),
                         amazonNews.getName(), amazonNews.getIcon(), amazonNews.getObjType());
                 mainActivity.news.add(amazonNews);
-                Log.e("News", amazonNews.getName() + amazonNews.getAndDate() + amazonNews.getUrl());
+               // Log.e("News", amazonNews.getName() + amazonNews.getAndDate() + amazonNews.getUrl());
             }
         } catch (JSONException error) {
             Log.e("Parsing error", error.getMessage());
@@ -63,8 +65,10 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mainActivity,1,GridLayoutManager.VERTICAL,false);
-        mainActivity.list.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mainActivity.getApplicationContext(), LinearLayoutManager.VERTICAL,false);
+        mainActivity.list.setLayoutManager(layoutManager);
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(mainActivity, layoutManager.getOrientation());
+
         if (jsonStrNews.equals("")){
             mainActivity.news = mainActivity.db.getNews();
         }
@@ -72,6 +76,7 @@ public class NewsLoader extends AsyncTask <Void,Void, Void> {
         NewsAdapter adapter = new NewsAdapter();
         adapter.mainActivity = mainActivity;
         mainActivity.list.setAdapter(adapter);
+        //mainActivity.loadData.setVisibility(View.INVISIBLE);
 
     }
 }

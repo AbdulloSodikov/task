@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cL_Item"
     android:layout_width="match_parent"
-    android:layout_height="150dp">
+    android:layout_height="150dp"
+    android:foreground="?selectableItemBackgroundBorderless">
 
     <TextView
         android:id="@+id/tv_name"
@@ -12,7 +13,10 @@
         android:layout_height="20dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="16dp"
+        android:gravity="center"
         android:text="@string/str_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/tv_nameJson"
         app:layout_constraintHorizontal_bias="0.22"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,6 +28,7 @@
         android:layout_height="20dp"
         android:layout_marginTop="5dp"
         android:text="@string/str_startData"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_name"
         app:layout_constraintTop_toBottomOf="@+id/tv_name" />
 
@@ -33,16 +38,19 @@
         android:layout_height="19dp"
         android:layout_marginTop="5dp"
         android:text="@string/str_objType"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_andData"
         app:layout_constraintTop_toBottomOf="@+id/tv_andData" />
 
     <TextView
         android:id="@+id/tv_nameJson"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="10dp"
-        android:text="dasdasdasda"
+        android:gravity="center_vertical"
+        android:maxLength="30"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/tv_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tv_name"
@@ -81,6 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="@string/str_andData"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/tv_startData"
         app:layout_constraintTop_toBottomOf="@+id/tv_startData" />
 
@@ -98,12 +107,13 @@
 
     <ImageView
         android:id="@+id/iv_photo"
-        android:layout_width="104dp"
-        android:layout_height="92dp"
-        android:layout_marginEnd="10dp"
+        android:layout_width="102dp"
+        android:layout_height="94dp"
+        android:layout_marginEnd="8dp"
         android:foregroundGravity="center_vertical|center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.642"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 </androidx.constraintlayout.widget.ConstraintLayout>
