@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Task</string>
+    <string name="str_name">Имя: </string>
+    <string name="str_startData">Дата начало: </string>
+    <string name="str_andData">Дата оканчания: </string>
+    <string name="str_objType">Тип объеката: </string>
+    <string name="str_load_data_info">Подождите, идет загрузка данных</string>
+</resources>
